@@ -478,15 +478,20 @@ JSQMessagesKeyboardControllerDelegate>
         return;
     }
 
-    NSIndexPath *lastCell = [NSIndexPath indexPathForItem:([self.collectionView numberOfItemsInSection:0] - 1) inSection:0];
-    [self scrollToIndexPath:lastCell animated:animated];
-
-//    CGPoint position = CGPointMake(0, self.collectionView.contentSize.height - self.collectionView.bounds.size.height
-//                                   //+ self.topContentAdditionalInset + self.bottomContentAdditionalInset
-//                                   + self.collectionView.contentInset.top + self.collectionView.contentInset.bottom
-//                                   );
-//    NSLog(@"scroll to y-position %f", position.y);
-//    [self.collectionView setContentOffset:position animated:animated];
+//    NSIndexPath *lastCell = [NSIndexPath indexPathForItem:([self.collectionView numberOfItemsInSection:0] - 1) inSection:0];
+//    [self scrollToIndexPath:lastCell animated:animated];
+    
+    CGPoint position = CGPointMake(0, self.collectionView.contentSize.height - self.collectionView.bounds.size.height
+                                   //+ self.topContentAdditionalInset + self.bottomContentAdditionalInset
+                                   //+ self.collectionView.contentInset.top
+                                   + self.collectionView.contentInset.bottom
+                                   );
+    NSLog(@"scroll to y-position %f", position.y);
+    if (position.y < -self.collectionView.contentInset.bottom) {
+        // Content is less than visible bounds
+        return;
+    }
+    [self.collectionView setContentOffset:position animated:animated];
 }
 
 
