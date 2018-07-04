@@ -337,18 +337,9 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 }
 
 - (void)setLinkPreview:(UIView *)linkPreview {
-    CGFloat linkPreviewFixedHeight = 60.0;
-    CGFloat linkPreviewLeadingConstraint = 10.0;
-    CGFloat linkPreviewTrailingConstraint = 10.0;
-    CGFloat messageBubbleGapTrailingConstraint = 15.0;
-
-    linkPreview.frame = CGRectMake(
-                                   self.messageBubbleContainerView.bounds.origin.x + linkPreviewLeadingConstraint,
-                                   self.messageBubbleContainerView.bounds.size.height - linkPreviewFixedHeight - 10,
-                                   self.messageBubbleContainerView.bounds.size.width - linkPreviewTrailingConstraint - messageBubbleGapTrailingConstraint,
-                                   linkPreviewFixedHeight
-                                   );
-
+    [linkPreview setTranslatesAutoresizingMaskIntoConstraints:NO];
+    linkPreview.frame = self.messageBubbleContainerView.bounds;
+    
     for (UIView *view in self.messageBubbleContainerView.subviews) {
         if (view.tag == 999) {
             [view removeFromSuperview];
