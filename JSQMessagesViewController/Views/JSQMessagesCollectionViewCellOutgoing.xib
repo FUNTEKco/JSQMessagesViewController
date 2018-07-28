@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -91,6 +91,13 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iad-eH-rvc">
+                        <rect key="frame" x="8" y="110" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="5Pf-yf-btP"/>
+                            <constraint firstAttribute="height" constant="24" id="AOQ-YG-3Si"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
             </view>
             <constraints>
@@ -100,6 +107,8 @@
                 <constraint firstItem="jxM-YD-sVG" firstAttribute="top" secondItem="23f-xH-rkY" secondAttribute="top" id="HYT-Tw-whz"/>
                 <constraint firstAttribute="trailing" secondItem="X89-B1-aAd" secondAttribute="trailing" id="KLt-Ix-wDa"/>
                 <constraint firstItem="7Uc-dI-YDD" firstAttribute="top" secondItem="2zh-vR-QJW" secondAttribute="bottom" id="Ngq-ew-t2K"/>
+                <constraint firstItem="Iad-eH-rvc" firstAttribute="bottom" secondItem="2zh-vR-QJW" secondAttribute="bottom" id="QLy-J0-PV5"/>
+                <constraint firstItem="2zh-vR-QJW" firstAttribute="leading" secondItem="Iad-eH-rvc" secondAttribute="trailing" constant="8" id="TgE-KR-3yg"/>
                 <constraint firstItem="7Uc-dI-YDD" firstAttribute="leading" secondItem="23f-xH-rkY" secondAttribute="leading" id="fiS-g3-X16"/>
                 <constraint firstAttribute="bottom" secondItem="7Uc-dI-YDD" secondAttribute="bottom" id="gXo-9b-b1W"/>
                 <constraint firstAttribute="trailing" secondItem="p52-YN-yLu" secondAttribute="trailing" id="gen-N0-uZj"/>
@@ -124,6 +133,7 @@
                 <outlet property="messageBubbleImageView" destination="2qm-c6-OZf" id="bpy-Gv-jSh"/>
                 <outlet property="messageBubbleTopLabel" destination="p52-YN-yLu" id="SLH-sA-Chu"/>
                 <outlet property="messageBubbleTopLabelHeightConstraint" destination="8TB-va-f8L" id="FNt-BS-Wxi"/>
+                <outlet property="statusImageView" destination="Iad-eH-rvc" id="mR5-Wj-e8w"/>
                 <outlet property="textView" destination="vLY-aM-0Dr" id="YEp-mW-xIY"/>
                 <outlet property="textViewAvatarHorizontalSpaceConstraint" destination="aVg-yy-8K7" id="CIe-Bi-eng"/>
                 <outlet property="textViewBottomVerticalSpaceConstraint" destination="UbF-Bl-Q7v" id="KHP-49-3u4"/>

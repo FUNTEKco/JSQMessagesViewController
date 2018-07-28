@@ -42,6 +42,8 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UIView *avatarContainerView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *statusImageView;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageBubbleContainerWidthConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewTopVerticalSpaceConstraint;
@@ -55,6 +57,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *avatarContainerViewWidthConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *avatarContainerViewHeightConstraint;
+
 
 @property (assign, nonatomic) UIEdgeInsets textViewFrameInsets;
 
@@ -389,6 +392,9 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     }
     else if (CGRectContainsPoint(self.messageBubbleContainerView.frame, touchPt)) {
         [self.delegate messagesCollectionViewCellDidTapMessageBubble:self];
+    }
+    else if (self.statusImageView && self.statusImageView.isHidden == false && CGRectContainsPoint(self.statusImageView.frame, touchPt)) {
+        [self.delegate messagesCollectionViewCellDidTapStatus:self];
     }
     else {
         [self.delegate messagesCollectionViewCellDidTapCell:self atPosition:touchPt];

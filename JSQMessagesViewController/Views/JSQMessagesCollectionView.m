@@ -157,6 +157,16 @@
     [self.delegate collectionView:self didTapMessageBubbleAtIndexPath:indexPath];
 }
 
+- (void)messagesCollectionViewCellDidTapStatus:(JSQMessagesCollectionViewCell *)cell
+{
+    NSIndexPath *indexPath = [self indexPathForCell:cell];
+    if (indexPath == nil) {
+        return;
+    }
+    
+    [self.delegate collectionView:self didTapStatusIconAtIndexPath:indexPath];
+}
+
 - (void)messagesCollectionViewCellDidTapCell:(JSQMessagesCollectionViewCell *)cell atPosition:(CGPoint)position
 {
     NSIndexPath *indexPath = [self indexPathForCell:cell];
@@ -180,6 +190,14 @@
                     performAction:action
                forItemAtIndexPath:indexPath
                        withSender:sender];
+}
+
+- (void)messagesCollectionViewCellDidTapStatusIcon:(JSQMessagesCollectionViewCell *)cell
+{
+    NSIndexPath *indexPath = [self indexPathForCell:cell];
+    if (indexPath == nil) {
+        return;
+    }
 }
 
 @end

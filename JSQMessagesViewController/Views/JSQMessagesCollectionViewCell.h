@@ -46,6 +46,13 @@
 - (void)messagesCollectionViewCellDidTapMessageBubble:(JSQMessagesCollectionViewCell *)cell;
 
 /**
+ *  Tells the delegate that the status image view of the cell has been tapped.
+ *
+ *  @param cell The cell that received the tap touch event.
+ */
+- (void)messagesCollectionViewCellDidTapStatus:(JSQMessagesCollectionViewCell *)cell;
+
+/**
  *  Tells the delegate that the cell has been tapped at the point specified by position.
  *
  *  @param cell The cell that received the tap touch event.
@@ -160,6 +167,8 @@
  *  @warning If this value is non-nil, then textView and messageBubbleImageView will both be `nil`.
  */
 @property (weak, nonatomic) UIView *mediaView;
+
+@property (weak, nonatomic, readonly) UIImageView *statusImageView;
 
 /**
  *  Returns the underlying gesture recognizer for tap gestures in the avatarImageView of the cell.
