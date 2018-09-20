@@ -1126,8 +1126,18 @@ JSQMessagesKeyboardControllerDelegate>
 
 - (void)jsq_updateCollectionViewInsets
 {
-    [self jsq_setCollectionViewInsetsTopValue:self.topLayoutGuide.length + self.topContentAdditionalInset
-                                  bottomValue:CGRectGetMaxY(self.collectionView.frame) - CGRectGetMinY(self.inputToolbar.frame) + self.bottomContentAdditionalInset];
+    // The topSpace is 0 when presenting ViewController, but changes to 64 when keyboard shows. That caues unexpected top space in collection view.
+//    CGFloat topSpace = 0;
+//    if (@available(iOS 11.0, *)) {
+//        topSpace = self.view.safeAreaInsets.top;
+//    } else {
+//        topSpace = self.topLayoutGuide.length;
+//    }
+//    NSLog(@"topSpace=%.0f", topSpace);
+//    [self jsq_setCollectionViewInsetsTopValue:topSpace + self.topContentAdditionalInset
+//                                  bottomValue:CGRectGetMaxY(self.collectionView.frame) - CGRectGetMinY(self.inputToolbar.frame) + self.bottomContentAdditionalInset];
+    
+    [self jsq_setCollectionViewInsetsTopValue:self.topContentAdditionalInset bottomValue:CGRectGetMaxY(self.collectionView.frame) - CGRectGetMinY(self.inputToolbar.frame) + self.bottomContentAdditionalInset];
 }
 
 - (void)jsq_setCollectionViewInsetsTopValue:(CGFloat)top bottomValue:(CGFloat)bottom
